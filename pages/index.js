@@ -8,7 +8,49 @@ const Home = () => {
   const [code, setCode] = useState(''); // This state will hold the editor code
 
   const runCode = async () => {
-    
+    const langMap = {
+      javascript: 'runJs',
+      python: 'runPython',
+      cpp: 'runCpp',
+      c: 'runC',
+      java: 'runJava',
+      php: 'runPhp',
+      go: 'runGo',
+      markdown: 'runMarkdown',
+      html: 'runHtml',
+      css: 'runCss'
+    };
+
+    if (language === '') {
+      alert("Please select language to run code")
+      return;
+    }
+    try {
+      const res = await fetch(`/api/${langMap[language]}`, {
+        method: 'POST',
+        headers: { 'Content-Type': 'application/json' },
+        body: JSON.stringify({ code }),
+      });
+
+      const data = await res.json();
+
+      if (res.ok) {
+        if (language === 'css') {
+          // Apply CSS to the document or to a specific element
+          const styleSheet = document.createElement('style');
+          styleSheet.type = 'text/css';
+          styleSheet.innerText = data.result;
+          document.head.appendChild(styleSheet);
+        } else {
+          setResult(data.result || 'No output');
+        }
+      } else {
+        setResult(`Error: ${data.error}`);
+      }
+    } catch (error) {
+      console.error('Fetch Error:', error.message); // Debugging output
+      setResult(`Error: ${error.message}`);
+    }
   };
 
 
@@ -29,8 +71,8 @@ const Home = () => {
           <select
             onChange={(e) => setLanguage(e.target.value)}
             value={language}
-            className="border rounded-lg p-2"
-            style={{ color: 'black' }}
+            className="border rounded-lg p-2 bg-blue-600 px-6 py-2"
+            style={{ color: 'white' }}
           >
             <option value="">Select a Language</option>
             <option value="javascript">JavaScript</option>
