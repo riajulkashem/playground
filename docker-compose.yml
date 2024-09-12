@@ -1,0 +1,14 @@
+version: '3'
+
+services:
+  playground:
+    build: .        # Build the Dockerfile in the current directory
+    ports:
+      - "3000:3000" # Map port 3000 on the host to port 3000 in the container
+    environment:
+      - NODE_ENV=development # Set environment variable for production
+    # Note: No need to specify `volumes` unless you need live code reloading
+    # If using for development and want to map code changes:
+    volumes:
+      - .:/app
+    command: ["npm", "run", "dev"] 

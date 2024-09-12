@@ -64,7 +64,7 @@ const Home = () => {
         <div className="flex justify-between mb-4">
           <button
             onClick={runCode}
-            className="bg-indigo-600 text-white px-4 py-2 rounded-lg hover:bg-indigo-900"
+            className="bg-green-600 text-white px-4 py-2 rounded-lg hover:bg-indigo-900"
           >
             Run Code
           </button>
@@ -98,9 +98,9 @@ const Home = () => {
           <div className='basis-1/2 overflow-y-scroll' style={{ height: '65vh', }}>
             {
               ['css', 'html', 'markdown'].includes(language) ? (
-                <div className="bg-gray-200 p-10 rounded-lg" style={{ color: 'black' }} dangerouslySetInnerHTML={{ __html: result }} />
+                <div className="bg-gray-200 border-8 border-white p-5 rounded-lg" style={{ color: 'black' }} dangerouslySetInnerHTML={{ __html: result }} />
               ) : (
-                <pre className="bg-gray-200 p-10 rounded-lg" style={{ color: 'black' }}>
+                <pre className="bg-gray-200 border-8 border-white p-5 rounded-lg" style={{ color: 'black' }}>
                   {result}
                 </pre>
               )
