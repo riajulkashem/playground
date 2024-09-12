@@ -1,6 +1,8 @@
 import { useState, useEffect } from 'react';
 import CodeEditor from '../components/CodeEditor';
 import Footer from '@/components/Footer';
+import { FontAwesomeIcon } from '@fortawesome/react-fontawesome';
+import { faCircleHalfStroke } from '@fortawesome/free-solid-svg-icons';
 
 const Home = () => {
   const [language, setLanguage] = useState('');
@@ -65,21 +67,14 @@ const Home = () => {
 
   return (
     <div className={`min-h-screen py-8 ${isDarkMode ? 'bg-gray-900 text-white' : 'bg-gray-100 text-black'}`}>
-      <div className="w-11/12 mx-auto">
+      <div className="w-11/12 mx-auto mb-2">
         <h1 className="text-4xl font-bold text-center mb-8">Programming Language Playground</h1>
 
         <div className="flex justify-between items-center mb-4">
-          <button
-            onClick={runCode}
-            className="bg-green-600 text-white px-4 py-2 rounded-lg hover:bg-green-700"
-          >
-            Run Code
-          </button>
-
           <select
             onChange={(e) => setLanguage(e.target.value)}
             value={language}
-            className="border rounded-lg p-2 bg-gray-600 text-white px-6 py-2"
+            className="border rounded-lg bg-gray-600 text-white px-6 py-1"
           >
             <option value="">Select a Language</option>
             <option value="c">C</option>
@@ -93,23 +88,29 @@ const Home = () => {
             <option value="python">Python</option>
             <option value="php">PHP</option>
           </select>
-
-          <h3 className="text-2xl font-semibold">Output</h3>
-
           <button
-            onClick={() => setIsDarkMode(!isDarkMode)}
-            className="bg-blue-600 text-white px-4 py-2 rounded-lg hover:bg-blue-700"
+            onClick={runCode}
+            className="bg-green-600 text-white px-4 py-1 rounded-lg hover:bg-green-700"
           >
-            Toggle {isDarkMode ? 'Light' : 'Dark'} Mode
+            Run Code
           </button>
+
+
+          <FontAwesomeIcon
+            color={isDarkMode ? 'white' : 'dark'}
+            icon={faCircleHalfStroke}
+            className='absolute right-3 bottom-16 text-4xl cursor-pointer'
+            title={isDarkMode ? 'Toggle light mode' : 'Toggle dark mode'}
+            onClick={() => setIsDarkMode(!isDarkMode)}
+          />
         </div>
 
-        <div className="flex flex-col md:flex-row gap-5">
-          <div className="bg-white dark:bg-gray-800 shadow-lg rounded-lg p-6 flex-1">
+        <div className="flex flex-col md:flex-row gap-2">
+          <div className="bg-white dark:bg-gray-800 shadow-lg rounded-lg p-2 flex-1">
             <CodeEditor language={language} onCodeChange={(value) => setCode(value)} />
           </div>
 
-          <div className="flex-1 overflow-y-scroll h-64 bg-gray-200 dark:bg-gray-700 border-8 border-white dark:border-gray-900 p-5 rounded-lg">
+          <div className="flex-1 overflow-y-scroll h-5/6 bg-gray-200 dark:bg-gray-700 border-8 border-white dark:border-gray-900 p-5 rounded-lg">
             {['css', 'html', 'markdown'].includes(language) ? (
               <div dangerouslySetInnerHTML={{ __html: result }} />
             ) : (

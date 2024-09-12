@@ -72,6 +72,11 @@ Simply write your code in the editor and click Run Code to see the output in rea
 Currently, there is an issue with running Java code in the playground. If you'd like to contribute to fixing this, we welcome pull requests!
 
 ## 🎨 Screenshots
+| Light Mode     | Dark Mode          |
+|--------------|------------------|
+| ![Programming Language Playground](/screenshots/playground-light.png "Playground Light Mode")       | ![Programming Language Playground](/screenshots/playground-dark.png "Playground Dark Mode")  |
+
+
 
 ## ⭐ Give the Project a Star!
 If you found this project helpful or interesting, feel free to give it a ⭐ star on GitHub. Your support helps the project grow!

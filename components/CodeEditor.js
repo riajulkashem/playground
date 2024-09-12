@@ -39,7 +39,7 @@ const CodeEditor = ({ language, onCodeChange }) => {
     return (
         <CodeMirror
             value={editorCode}
-            height="60vh"
+            height="70vh"
             theme="dark"
             extensions={[getLanguage()]}
             onChange={(value) => handleEditorChange(value)}
