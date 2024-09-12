@@ -4,6 +4,12 @@ This is a **Programming Language Playground** where you can write, execute, and 
 
 Feel free to explore, test your code, and enjoy coding in one place! You have to run this project using **Docker** to easily manage dependencies for all supported languages.
 
+## 🎨 Screenshots
+| Light Mode     | Dark Mode          |
+|--------------|------------------|
+| ![Programming Language Playground](/screenshots/playground-light.png "Playground Light Mode")       | ![Programming Language Playground](/screenshots/playground-dark.png "Playground Dark Mode")  |
+
+
 ## 🌟 Features
 
 - Support for **multiple programming languages**
@@ -70,12 +76,6 @@ Simply write your code in the editor and click Run Code to see the output in rea
 
 ## 🐛 Known Issues
 Currently, there is an issue with running Java code in the playground. If you'd like to contribute to fixing this, we welcome pull requests!
-
-## 🎨 Screenshots
-| Light Mode     | Dark Mode          |
-|--------------|------------------|
-| ![Programming Language Playground](/screenshots/playground-light.png "Playground Light Mode")       | ![Programming Language Playground](/screenshots/playground-dark.png "Playground Dark Mode")  |
-
 
 
 ## ⭐ Give the Project a Star!
